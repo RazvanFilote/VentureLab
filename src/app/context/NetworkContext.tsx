@@ -1,6 +1,9 @@
 import { createContext, useContext, useState, useEffect, useRef, useCallback, ReactNode } from "react";
+import { API_BASE } from "../api/auth";
 
-const API = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+// Same base the REST client uses: explicit VITE_API_URL wins, else same-origin
+// in production and localhost in dev. "" ⇒ the health check hits relative /health.
+const API = API_BASE;
 
 type QueuedOp = {
   id: string;

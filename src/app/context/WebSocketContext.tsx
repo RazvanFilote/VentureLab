@@ -1,8 +1,9 @@
 import { createContext, useContext, useState, useEffect, useRef, ReactNode } from "react";
 import { useIdeas } from "./IdeasContext";
 import { Idea } from "../data/mockData";
+import { API_BASE } from "../api/auth";
 
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+const API_URL = API_BASE || (typeof window !== "undefined" ? window.location.origin : "");
 const WS_URL = `${API_URL.replace(/^http/, "ws")}/ws`;
 
 // The live idea-generator runs over a WebSocket + a long-running server loop,
