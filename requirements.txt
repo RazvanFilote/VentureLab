@@ -1,3 +1,14 @@
-# Vercel's Python runtime installs from this root-level requirements.txt.
-# The backend's dependency list is the single source of truth.
--r backend/requirements.txt
+# Runtime dependencies for the Vercel Python serverless function (api/index.py).
+# Vercel parses this file directly and does NOT support "-r" includes, so the
+# backend's runtime deps are listed explicitly here. Test-only deps
+# (pytest, httpx, faker) live in backend/requirements.txt and are omitted.
+fastapi==0.115.0
+pydantic[email]==2.9.2
+SQLAlchemy==2.0.36
+alembic==1.13.3
+python-dotenv==1.0.1
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+bcrypt<4
+cryptography>=42
+psycopg2-binary==2.9.10
