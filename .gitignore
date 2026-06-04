@@ -1,0 +1,33 @@
+# ── Dependencies ─────────────────────────────────────────────
+node_modules/
+backend/venv/
+backend/.venv/
+**/__pycache__/
+*.py[cod]
+
+# ── Build / tooling output ───────────────────────────────────
+dist/
+coverage/
+playwright-report/
+test-results/
+.pytest_cache/
+.vercel/
+
+# ── Secrets & local env ──────────────────────────────────────
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# ── Local databases & certs ──────────────────────────────────
+*.db
+backend/test.db
+backend/.coverage
+backend/certs/
+
+# ── OS / editor noise ────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.log
