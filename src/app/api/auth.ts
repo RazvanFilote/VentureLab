@@ -11,7 +11,12 @@
 const TOKEN_KEY = "vl_jwt";
 const USER_KEY = "vl_current_user";
 
-export const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+// In a production build, default to same-origin ("" ⇒ relative /api/... calls)
+// so a Vercel deploy talks to its own backend with no env var needed. In dev,
+// default to the local FastAPI server. An explicit VITE_API_URL always wins.
+export const API_BASE =
+  import.meta.env.VITE_API_URL ??
+  (import.meta.env.PROD ? "" : "http://localhost:8000");
 
 export interface AuthUser {
   id: string;
